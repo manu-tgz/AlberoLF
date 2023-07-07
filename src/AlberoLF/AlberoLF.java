@@ -4,58 +4,101 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class AlberoLF<T> {
-	private NodoLF<T> root;
+	private NodoLF<T> radice;
 
-	public void addRoot(T info) {
-		if(root==null) {
-			root = new NodoLF<T>(info);
-		}
-		else {
-			NodoLF<T> lastRoot = root;
-			root = new NodoLF<T>(info);
-			root.addFiglio(lastRoot);
+	public void addRadice(T info) {
+		if (radice == null) {
+			radice = new NodoLF<T>(info);
+		} else {
+			NodoLF<T> lastradice = radice;
+			radice = new NodoLF<T>(info);
+			radice.addFiglio(lastradice);
 		}
 	}
-	public NodoLF<T> getroot(){
-		return root;
+
+	public NodoLF<T> getRadice() {
+		return radice;
 	}
+
 	public void addNodo(NodoLF<T> padre, T info) {
 		NodoLF<T> figlio = new NodoLF<T>(info);
 		padre.addFiglio(figlio);
 		figlio.setPadre(padre);
 	}
-	
+
 	public int getAltezza() {
-		ArrayList<NodoLF<T>> nodi = getNodi();
-		NodoLF<T> ultimo = nodi.get(nodi.size()-1);
-		return ultimo.getLivello()+1;
-		
+		/* Return altezza: altezza = livello dell'ultimo nodo +1 */
+		LinkedList<NodoLF<T>> nodi = getNodi();
+		return nodi.getLast().getLivello() + 1;
 	}
-	
-	public ArrayList<NodoLF<T>> getNodi(){
-		BFS<T> visita = new BFS<T>();
-		 return visita.BFS(root);
+
+	public LinkedList<NodoLF<T>> getNodi() {
+		return bfs(radice);
 	}
-	
-	public ArrayList<T> getInformazioni(){
-		ArrayList<NodoLF<T>> nodi = getNodi();
+
+	public ArrayList<T> getInformazioniBFS() {
+		LinkedList<NodoLF<T>> nodi = getNodi();
 		ArrayList<T> informazioni = new ArrayList<T>();
 		for (NodoLF<T> nodoLF : nodi) {
 			informazioni.add(nodoLF.getInfo());
 		}
 		return informazioni;
 	}
-	
-	public int getFoglie() {
-		ArrayList<NodoLF<T>> nodi = getNodi();
-		int numFoglie=0;
-		
-		for (NodoLF<T> nodoLF : nodi) {
-			if(nodoLF.getfigli().size()>0) {
-				numFoglie++;
-			}
+
+	public int getnumFoglie() {
+		return contaFoglie(radice);
+	}
+
+	private int contaFoglie(NodoLF<T> a) {
+		if (a == null) // albero vuoto
+			return 0;
+		LinkedList<NodoLF<T>> figli = a.getfigli();
+		if (figli.size() == 0) {
+			return 1;
 		}
-		return numFoglie;
+		int foglies = 0;
+		for (NodoLF<T> nodoLF : figli) {
+			foglies = +contaFoglie(nodoLF);
+		}
+		return foglies;
+	}
+
+	public LinkedList<NodoLF<T>> bfs(NodoLF<T> radice) {
+		LinkedList<NodoLF<T>> queue = new LinkedList<NodoLF<T>>();
+		LinkedList<NodoLF<T>> listaNodi = new LinkedList<NodoLF<T>>();
+
+		queue.add(radice);
+
+		while (!queue.isEmpty()) {
+			NodoLF<T> u = queue.remove();
+			queue.addAll(u.getfigli());
+			listaNodi.add(u);
+		}
+		return listaNodi;
+	}
+
+	public LinkedList<NodoLF<T>> dfs(NodoLF<T> radice) {
+		return null;
 	}
 	
+	public String toString() {
+		String[] rappresenta= {""};
+		createString(radice,rappresenta);
+		return rappresenta[0];
+	}
+
+	private void createString(NodoLF<T> a, String[] s) {
+		if(a==null) {
+			s[0]=s[0]+"null";
+			return;
+		}	
+		s[0]=s[0]+a.toString()+"[";
+
+		for (NodoLF<T> nodoLF : a.getfigli()) {
+			createString(nodoLF,s);
+			s[0]=s[0]+",";
+		}
+		s[0]=s[0]+"]";
+	}
+
 }

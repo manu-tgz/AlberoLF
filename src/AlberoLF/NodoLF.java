@@ -1,33 +1,17 @@
 package AlberoLF;
 import java.util.*;
 
-public class NodoLF<T> {
-	private T info;
-	private LinkedList<NodoLF<T>> figli;
+public class NodoLF<T> extends Nodo<T>{
 	private NodoLF<T> padre;
+	private LinkedList<NodoLF<T>> figli;
 		
 	public NodoLF(T x){
-		info=x;
+		super(x);
 		figli = new LinkedList<NodoLF<T>>();
 	}
 	
 	public void addFiglio(NodoLF<T> v) {
 		figli.add(v);
-	}
-	
-	public LinkedList<NodoLF<T>> getfigli(){
-		return figli;
-	}
-	
-	public String toString(){
-		return info.toString();
-	}	
-	public T getInfo() {
-		return info;
-	}
-	
-	public void setInfo(T info) {
-		this.info = info;
 	}
 	 
 	public void setPadre(NodoLF<T> padre) {
@@ -37,8 +21,9 @@ public class NodoLF<T> {
 	public NodoLF<T> getPadre(){
 		return padre;
 	}
-
-	
+	public LinkedList<NodoLF<T>> getfigli() {
+		return figli;
+	}	
 	public int getLivello() {
 		int livello = 0;
 		NodoLF<T> padre = getPadre();
@@ -46,7 +31,6 @@ public class NodoLF<T> {
 			livello++;
 			padre = padre.getPadre();
 		}
-		
 		return livello;
 	}
 }
