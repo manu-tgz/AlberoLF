@@ -1,3 +1,6 @@
+//Guido Foschini 7109621
+//Emmanuel Torres 7128219
+
 package AlberoLF;
 
 
@@ -13,12 +16,13 @@ public class StampaAlbero<T> {
 		printRappresentazione();
 		printInformazioni();
 		printAltezza();
-
+		NumFoglie();
 	}
-	
+
 	public void printRadice() {
 		System.out.println("radice dell'albero: "+albero.getRadice());
 	}
+
 	public void printRappresentazione() {
 		System.out.println("rappresentazione dell'albero: "+albero.toString());
 	}
@@ -51,6 +55,12 @@ public class StampaAlbero<T> {
 	
 	public void livello(NodoLF<T>a) {
 		System.out.println("livello nodo "+a.toString()+ "è "+ a.getLivello());
+	}
+	public void padre(NodoLF<T>a) {
+		System.out.println("padre nodo "+a.toString()+ "è "+ a.getPadre());
+	}
+	public void NumFoglie() {
+		System.out.println("numero di foglie "+albero.getnumFoglie());
 	}
 
 }

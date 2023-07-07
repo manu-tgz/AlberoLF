@@ -1,3 +1,6 @@
+//Guido Foschini 7109621
+//Emmanuel Torres 7128219
+
 package AlberoLF;
 
 import java.util.LinkedList;
@@ -69,14 +72,14 @@ public class AlberoLF<T> {
 		}
 		int foglies = 0;
 		for (NodoLF<T> nodoLF : figli) {
-			foglies = +contaFoglie(nodoLF);
+			foglies = foglies +contaFoglie(nodoLF);
 		}
 		return foglies;
 	}
 
 	public LinkedList<NodoLF<T>> bfs(NodoLF<T> radice) {
 		LinkedList<NodoLF<T>> queue = new LinkedList<NodoLF<T>>();
-		LinkedList<NodoLF<T>> listaNodi = new LinkedList<NodoLF<T>>();
+		LinkedList<NodoLF<T>> listaNodi = new LinkedList<NodoLF<T>>();  
 
 		queue.add(radice);
 
@@ -87,10 +90,10 @@ public class AlberoLF<T> {
 		}
 		return listaNodi;
 	}
+
 	public LinkedList<NodoLF<T>> dfs() {
 		LinkedList<NodoLF<T>> listaNodi = new LinkedList<NodoLF<T>>();
 		dfs1(radice,listaNodi);
-		
 		return listaNodi;
 	}
 	

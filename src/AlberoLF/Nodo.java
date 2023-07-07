@@ -1,3 +1,6 @@
+//Guido Foschini 7109621
+//Emmanuel Torres 7128219
+
 package AlberoLF;
 
 public class Nodo<T>{
@@ -14,6 +17,6 @@ public class Nodo<T>{
 		this.info = info;
 	}
 	public String toString(){
-		return info.toString();
+		return info.toString();                                          
 	}
 }

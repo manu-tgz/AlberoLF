@@ -1,3 +1,6 @@
+//Guido Foschini 7109621
+//Emmanuel Torres 7128219
+
 package AlberoLF;
 import java.util.*;
 
@@ -21,6 +24,7 @@ public class NodoLF<T> extends Nodo<T>{
 	public NodoLF<T> getPadre(){
 		return padre;
 	}
+
 	public LinkedList<NodoLF<T>> getfigli() {
 		return figli;
 	}

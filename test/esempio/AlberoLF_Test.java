@@ -1,3 +1,6 @@
+//Guido Foschini 7109621
+//Emmanuel Torres 7128219
+
 package esempio;
 
 import static org.junit.Assert.assertEquals;
@@ -28,6 +31,7 @@ class AlberoLF_Test {
 		NodoLF<Integer> padre = radiceVecchia.getPadre();
 		assertEquals(padre, radice);
 	}
+
 	@Test
 	public void addNodoTest() {
 		albero.addRadice(7);

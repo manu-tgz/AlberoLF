@@ -1,3 +1,6 @@
+//Guido Foschini 7109621
+//Emmanuel Torres 7128219
+
 package AlberoLF;
 
 public class run {
@@ -22,6 +25,10 @@ public class run {
 		stampa.printInformazioniNodo(Claudia);
 		stampa.livello(Andrea);
 		stampa.livello(Giulia);
+
+		stampa.padre(Andrea);
+		stampa.padre(Giulia);
+		
 		
 	}
 	
