@@ -1,6 +1,5 @@
 package AlberoLF;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class AlberoLF<T> {
@@ -13,6 +12,7 @@ public class AlberoLF<T> {
 			NodoLF<T> lastradice = radice;
 			radice = new NodoLF<T>(info);
 			radice.addFiglio(lastradice);
+			lastradice.setPadre(radice);
 		}
 	}
 
@@ -20,14 +20,16 @@ public class AlberoLF<T> {
 		return radice;
 	}
 
-	public void addNodo(NodoLF<T> padre, T info) {
+	public NodoLF<T> addNodo(NodoLF<T> padre, T info) {
+		/*add nodo come figlio del nodo entrante e salva il padre*/
 		NodoLF<T> figlio = new NodoLF<T>(info);
 		padre.addFiglio(figlio);
 		figlio.setPadre(padre);
+		return figlio;
 	}
 
 	public int getAltezza() {
-		/* Return altezza: altezza = livello dell'ultimo nodo +1 */
+		/* Return altezza = livello dell'ultimo nodo + 1 */
 		LinkedList<NodoLF<T>> nodi = getNodi();
 		return nodi.getLast().getLivello() + 1;
 	}
@@ -36,15 +38,24 @@ public class AlberoLF<T> {
 		return bfs(radice);
 	}
 
-	public ArrayList<T> getInformazioniBFS() {
+	public LinkedList<T> getInformazioniBFS() {
 		LinkedList<NodoLF<T>> nodi = getNodi();
-		ArrayList<T> informazioni = new ArrayList<T>();
+		LinkedList<T> informazioni = new LinkedList<T>();
 		for (NodoLF<T> nodoLF : nodi) {
 			informazioni.add(nodoLF.getInfo());
 		}
 		return informazioni;
 	}
 
+	public LinkedList<T> getInformazioniDFS() {
+		LinkedList<NodoLF<T>> nodi = dfs();
+		LinkedList<T> informazioni = new LinkedList<T>();
+		for (NodoLF<T> nodoLF : nodi) {
+			informazioni.add(nodoLF.getInfo());
+		}
+		return informazioni;
+	}
+	
 	public int getnumFoglie() {
 		return contaFoglie(radice);
 	}
@@ -53,7 +64,7 @@ public class AlberoLF<T> {
 		if (a == null) // albero vuoto
 			return 0;
 		LinkedList<NodoLF<T>> figli = a.getfigli();
-		if (figli.size() == 0) {
+		if (figli.size() == 0) { //non ha figli
 			return 1;
 		}
 		int foglies = 0;
@@ -76,9 +87,18 @@ public class AlberoLF<T> {
 		}
 		return listaNodi;
 	}
-
-	public LinkedList<NodoLF<T>> dfs(NodoLF<T> radice) {
-		return null;
+	public LinkedList<NodoLF<T>> dfs() {
+		LinkedList<NodoLF<T>> listaNodi = new LinkedList<NodoLF<T>>();
+		dfs1(radice,listaNodi);
+		
+		return listaNodi;
+	}
+	
+	public void dfs1(NodoLF<T> nodo, LinkedList<NodoLF<T>> listaNodi) {
+		listaNodi.add(nodo);
+		for (NodoLF<T> nodoLF : nodo.getfigli()) {
+			dfs1(nodoLF,listaNodi);
+		}
 	}
 	
 	public String toString() {

@@ -23,7 +23,16 @@ public class NodoLF<T> extends Nodo<T>{
 	}
 	public LinkedList<NodoLF<T>> getfigli() {
 		return figli;
-	}	
+	}
+	
+	public LinkedList<T> getInformazioni(){
+		LinkedList<T> informazioni = new LinkedList<T>();
+		for (NodoLF<T> nodoLF : getfigli()) {
+			informazioni.add(nodoLF.getInfo());
+		}
+		return informazioni;
+	}
+	
 	public int getLivello() {
 		int livello = 0;
 		NodoLF<T> padre = getPadre();
