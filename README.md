@@ -7,25 +7,24 @@ tutte le informazioni contenute nei nodi sono dello stesso tipo;
 3. l’inserimento di un nodo nell’albero (esclusa la radice) è possibile solo
 specificando il padre del nodo che verrà inserito e l’informazione che esso
 conterrà;
-
 4. quando si inserisce un nodo "v" come figlio di un altro nodo "u" già presente
 nell’albero, il nodo "v" diviene l’ultimo figlio di "u".
 
 # NodoLF
 ![Nodo](img/nodo.png)
-La classe è astrazione del nodo di un albero, dove ogni nodo ha una informazione e i suoi metodo getter and setter
+La classe è un'astrazione del nodo di un albero, dove ogni nodo ha una informazione e i suoi metodi Getter e Setter.
 
 
 ![NodoLF](img/NodoLF.png)
-La classe **NodoLF** è filgia della classe Nodo e aggiunge i suoi metodi 
+La classe **NodoLF** è filgia della classe Nodo e viene utilizzata per aggiungere i suoi metodi.
 
 ![albero](img/albero.png)
-La classe **AlberoLF** è la amministratrice di tutti nodiLF.
+La classe **AlberoLF** è l'amministratrice di tutti nodiLF.
 
 ![informazioniBFS](img/informazionBFS.png)
-Il metodo **getInformazioniBFS** restituisce la lista delle informazioni dei nodi dell’albero visitato in ampiezza. Prende i nodi con il metodo BFS e memorizza la lista delle informazioni.
+Il metodo **getInformazioniBFS** restituisce la lista delle informazioni dei nodi dell’albero dopo la visita in ampiezza. Prende i nodi con il metodo BFS e memorizza la lista delle informazioni.
 
-Il metodo **getInformazioniDFS** si comporta allo stesso modo del metodo precedente, in più visita i nodi con la visita profondità.
+Il metodo **getInformazioniDFS** si comporta allo stesso modo del metodo precedente ma utlizzando la visita in profondità(DFS).
 
 ## Visita in ampiezza
 ![bfs](img/bfs.png)
@@ -35,7 +34,7 @@ Il metodo **getInformazioniDFS** si comporta allo stesso modo del metodo precede
 
 # Stampa
 ![stampa](img/stampa.png)
-**StampaAlberoLF** stampa tutta la informazioni dell'albero. 
+**StampaAlberoLF** stampa tutte la informazioni richieste dell'albero. 
 
 # Test
 ![test](img/test.png)
