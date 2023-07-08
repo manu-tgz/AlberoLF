@@ -12,7 +12,7 @@ nell’albero, il nodo "v" diviene l’ultimo figlio di "u".
 
 # NodoLF
 ![Nodo](img/nodo.png)
-La classe è un'astrazione del nodo di un albero, dove ogni nodo ha una informazione e i suoi metodi Getter e Setter.
+La classe è un'astrazione del nodo di un albero, dove ogni nodo ha un informazione e sono presenti i suoi metodi Getter e Setter.
 
 
 ![NodoLF](img/NodoLF.png)
@@ -24,7 +24,7 @@ La classe **AlberoLF** è l'amministratrice di tutti nodiLF.
 ![informazioniBFS](img/informazionBFS.png)
 Il metodo **getInformazioniBFS** restituisce la lista delle informazioni dei nodi dell’albero dopo la visita in ampiezza. Prende i nodi con il metodo BFS e memorizza la lista delle informazioni.
 
-Il metodo **getInformazioniDFS** si comporta allo stesso modo del metodo precedente ma utlizzando la visita in profondità(DFS).
+Il metodo **getInformazioniDFS** si comporta allo stesso modo del precedente ma utlizzando la visita in profondità(DFS).
 
 ## Visita in ampiezza
 ![bfs](img/bfs.png)
