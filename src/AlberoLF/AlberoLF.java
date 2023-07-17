@@ -32,17 +32,19 @@ public class AlberoLF<T> {
 	}
 
 	public int getAltezza() {
-		/* Return altezza = livello dell'ultimo nodo + 1 */
+		/* 
+		 * Prendi tutti i nodo con il metodo BFS
+		 * Dove l'ultimo nodo sarebbe quello con il livello più alto
+		 * Return: altezza = massimo livello dei suoi nodi*/
 		LinkedList<NodoLF<T>> nodi = getNodi();
-		return nodi.getLast().getLivello() + 1;
+		return nodi.getLast().getLivello();
 	}
 
 	public LinkedList<NodoLF<T>> getNodi() {
 		return bfs(radice);
 	}
-
-	public LinkedList<T> getInformazioniBFS() {
-		LinkedList<NodoLF<T>> nodi = getNodi();
+	
+	private LinkedList<T> getInformazioni(LinkedList<NodoLF<T>> nodi){
 		LinkedList<T> informazioni = new LinkedList<T>();
 		for (NodoLF<T> nodoLF : nodi) {
 			informazioni.add(nodoLF.getInfo());
@@ -50,13 +52,14 @@ public class AlberoLF<T> {
 		return informazioni;
 	}
 
+	public LinkedList<T> getInformazioniBFS() {
+		LinkedList<NodoLF<T>> nodi = getNodi();
+		return getInformazioni(nodi);
+	}
+
 	public LinkedList<T> getInformazioniDFS() {
 		LinkedList<NodoLF<T>> nodi = dfs();
-		LinkedList<T> informazioni = new LinkedList<T>();
-		for (NodoLF<T> nodoLF : nodi) {
-			informazioni.add(nodoLF.getInfo());
-		}
-		return informazioni;
+		return getInformazioni(nodi);
 	}
 	
 	public int getnumFoglie() {

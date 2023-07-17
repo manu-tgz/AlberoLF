@@ -38,6 +38,9 @@ public class NodoLF<T> extends Nodo<T>{
 	}
 	
 	public int getLivello() {
+		/*Parte dal padre e poi va a salire fino la radice prendendo sempre il padre
+		 * del nodo.
+		*/
 		int livello = 0;
 		NodoLF<T> padre = getPadre();
 		while (padre!=null) {

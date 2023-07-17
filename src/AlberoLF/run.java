@@ -25,6 +25,7 @@ public class run {
 		stampa.printInformazioniNodo(Claudia);
 		stampa.livello(Andrea);
 		stampa.livello(Giulia);
+		stampa.livello(Claudia);
 
 		stampa.padre(Andrea);
 		stampa.padre(Giulia);

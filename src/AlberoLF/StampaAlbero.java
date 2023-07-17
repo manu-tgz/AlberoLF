@@ -54,10 +54,10 @@ public class StampaAlbero<T> {
 	}
 	
 	public void livello(NodoLF<T>a) {
-		System.out.println("livello nodo "+a.toString()+ "è "+ a.getLivello());
+		System.out.println("livello nodo "+a.toString()+ " è "+ a.getLivello());
 	}
 	public void padre(NodoLF<T>a) {
-		System.out.println("padre nodo "+a.toString()+ "è "+ a.getPadre());
+		System.out.println("padre nodo "+a.toString()+ " è "+ a.getPadre());
 	}
 	public void NumFoglie() {
 		System.out.println("numero di foglie "+albero.getnumFoglie());

@@ -46,8 +46,9 @@ class AlberoLF_Test {
 		albero.addRadice(7);
 		albero.addRadice(5);
 		NodoLF<Integer> radice = albero.getRadice();
-		albero.addNodo(radice, 6);
-		albero.addNodo(radice.getfigli().getLast(), 8);
+		NodoLF<Integer> nodo5 = radice.getfigli().getFirst();
+		NodoLF<Integer> nodo6 = albero.addNodo(nodo5, 6);
+		albero.addNodo(nodo6, 8);
 		assertEquals(3, albero.getAltezza());
 	}
 }
